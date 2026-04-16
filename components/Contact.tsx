@@ -57,15 +57,35 @@ export default function Contact() {
     return () => observer.disconnect()
   }, [])
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setSending(true)
-    await new Promise((r) => setTimeout(r, 1800))
-    setSending(false)
-    setSent(true)
-    setTimeout(() => setSent(false), 4000)
-    setForm({ name: '', email: '', subject: '', message: '' })
+ const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault()
+  setSending(true)
+
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(form),
+    })
+
+    const data = await res.json()
+
+    if (data.success) {
+      setSent(true)
+      setForm({ name: '', email: '', subject: '', message: '' })
+      setTimeout(() => setSent(false), 4000)
+    } else {
+      alert('Failed to send message.')
+    }
+  } catch (err) {
+    console.error(err)
+    alert('Something went wrong.')
   }
+
+  setSending(false)
+}
 
   const inputStyle = {
     width: '100%',

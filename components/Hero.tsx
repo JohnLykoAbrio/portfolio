@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from 'react'
 import Image from "next/image"
 
-const roles = ['UI/UX Designer', 'Frontend Developer', 'React Specialist', 'Next.js Engineer']
+const roles = ['UI/UX Designer', 'Frontend Developer', 'React Specialist', 'Next.js Specialist' , 'Full-Stack Developer']
 
 function TypingText({ texts }: { texts: string[] }) {
   const [index, setIndex] = useState(0)

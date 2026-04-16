@@ -250,42 +250,36 @@ export default function Certificates() {
 
       <CertCanvas />
 
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(0,255,135,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,135,0.025) 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
-        }}
-      />
-
       <div className="max-w-[1200px] mx-auto relative z-10">
 
-        <div className={`text-center mb-16 transition-all duration-700 ${sectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        {/* LEFT-ALIGNED HEADER */}
+        <div className={`mb-16 transition-all duration-700 ${
+          sectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
+          <div className="max-w-[700px]">
 
-          <div className="inline-flex items-center gap-2 text-[10px] tracking-[0.35em] text-[#00ff87]/60 uppercase mb-4">
-            <div className="w-8 h-[1px] bg-[#00ff87]/40"/>
-            VERIFIED CREDENTIALS
-            <div className="w-8 h-[1px] bg-[#00ff87]/40"/>
+            
+
+            <h2 className="text-left text-[clamp(2rem,5vw,3.2rem)] font-black tracking-[0.12em] uppercase text-white font-[Orbitron]">
+              CERTIFI <span className="text-[#00ff87] drop-shadow-[0_0_20px_rgba(0,255,135,0.6)]">CATIONS</span>
+            </h2>
+
+            <p className="text-left text-[11px] tracking-[0.2em] text-[#00ff87]/40 uppercase mt-2">
+              Professional Certifications & Achievements
+            </p>
+
           </div>
-
-          <h2 className="text-[clamp(2rem,5vw,3.2rem)] font-black tracking-[0.12em] uppercase text-white font-[Orbitron]">
-            CERTIFI <span className="text-[#00ff87] drop-shadow-[0_0_20px_rgba(0,255,135,0.6)]">CATIONS</span>
-          </h2>
-
-          <p className="text-[11px] tracking-[0.2em] text-[#00ff87]/40 uppercase mt-2">
-            Professional Certifications & Achievements
-          </p>
         </div>
 
-        <div className="flex justify-center gap-12 mb-12 flex-wrap">
+        {/* STATS */}
+        <div className="flex justify-start gap-12 mb-12 flex-wrap">
           {[
             { number: certificates.length, label: 'Certificates' },
             { number: uniqueIssuers, label: 'Issuers' },
             { number: latestYear, label: 'Latest' },
           ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="text-3xl font-black text-[#00ff87] font-[Orbitron] drop-shadow-[0_0_10px_rgba(0,255,135,0.6)]">
+            <div key={stat.label} className="text-left">
+              <div className="text-3xl font-black text-[#00ff87] font-[Orbitron]">
                 {stat.number}
               </div>
               <div className="text-[10px] tracking-[0.2em] text-white/40 uppercase">
@@ -295,6 +289,7 @@ export default function Certificates() {
           ))}
         </div>
 
+        {/* GRID */}
         <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-6">
           {certificates.map((cert, i) => (
             <CertificateCard key={cert.credentialId ?? cert.title} cert={cert} index={i} />
