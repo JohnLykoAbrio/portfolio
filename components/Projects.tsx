@@ -5,76 +5,82 @@ import { useEffect, useRef, useState } from 'react'
 const projects = [
   {
     id: '01',
-    title: 'NexaFlow Dashboard',
-    category: 'UI/UX Design · React',
-    desc: 'Real-time analytics dashboard for fintech operations. Features live data visualization, custom chart components, and role-based access control.',
-    tech: ['React', 'TypeScript', 'D3.js', 'Tailwind'],
+    title: 'Evital Manual Dashboard',
+    category: 'UI/UX Design · Next.js',
+    desc: 'Interactive health kiosk dashboard with real-time monitoring, intuitive navigation, and a user-friendly interface for local community health services.',
+    tech: ['UI/UX Design', 'Vercel', 'Next.js'],
     color: '#00ff87',
-    status: 'LIVE',
-    year: '2024',
+    year: '2026',
+    image: '/project1.png',
+    link: 'https://evitalcapstoneproject.vercel.app/',
   },
   {
     id: '02',
-    title: 'Cipher E-Commerce',
-    category: 'Next.js · Full Stack',
-    desc: 'Modern e-commerce platform built with Next.js App Router, Stripe integration, and a headless CMS. Optimized for Core Web Vitals.',
-    tech: ['Next.js', 'Stripe', 'Prisma', 'PostgreSQL'],
+    title: 'Tristar Website',
+    category: 'Next.js · UI/UX Design',
+    desc: 'Modern corporate website with responsive layouts, smooth animations, and a clean user experience designed for branding and online presence.',
+    tech: ['Next.js', 'UI/UX Design', 'Vercel'],
     color: '#00ff87',
-    status: 'LIVE',
-    year: '2024',
+    year: '2026',
+    image: '/project2.png',
+    link: 'https://tristar-hazel.vercel.app/',
   },
   {
     id: '03',
-    title: 'Orbit Design System',
-    category: 'Design System · Figma',
-    desc: 'Comprehensive design system with 200+ components, dark/light themes, design tokens, and full Figma-to-code documentation.',
-    tech: ['Figma', 'Storybook', 'React', 'CSS Variables'],
+    title: 'Human Resource Information System',
+    category: 'Next.js · Supabase',
+    desc: 'Modern HR management platform with employee records, attendance tracking, authentication, and streamlined administrative workflows.',
+    tech: ['Next.js', 'Supabase', 'Vercel', 'Prisma'],
     color: '#00ff87',
-    status: 'WIP',
-    year: '2025',
+    year: '2026',
+    image: '/project3.png',
   },
   {
     id: '04',
-    title: 'Pulse Health App',
+    title: 'Fuel Tracker Mobile App',
     category: 'Mobile UI/UX · React Native',
-    desc: 'Health tracking app with intuitive data entry flows, biometric visualizations, and personalized wellness recommendations.',
-    tech: ['React Native', 'Expo', 'HealthKit', 'Figma'],
+    desc: 'Smart fuel monitoring app that helps users track fuel expenses, monitor consumption history, and manage vehicle efficiency through an intuitive mobile interface.',
+    tech: ['React Native', 'Snack.Expo', 'Firebase'],
     color: '#00ff87',
-    status: 'LIVE',
-    year: '2023',
+    year: '2025',
+    image: '/project4.png',
+    link: 'https://snack.expo.dev/@johnlykoabrio/advfinalproj',
   },
   {
     id: '05',
-    title: 'Aether SaaS Platform',
-    category: 'Next.js · SaaS',
-    desc: 'Multi-tenant SaaS platform with subscription management, team workspaces, and an AI-powered workflow automation engine.',
-    tech: ['Next.js', 'Auth.js', 'OpenAI', 'Stripe'],
+    title: 'Evital Feedback System',
+    category: 'Next.js · Supabase',
+  desc: 'Web-based feedback management system that collects user responses, stores data securely with Supabase, and provides an organized interface for monitoring community feedback.',
+    tech: ['Next.js', 'Supabase', 'Prisma', 'Vercel'],
     color: '#00ff87',
-    status: 'LIVE',
-    year: '2024',
+    year: '2026',
+    image: '/project5.png',
+    
   },
   {
     id: '06',
-    title: 'VoidType Portfolio',
+    title: 'Evital Health Kiosk Prototype',
     category: 'Creative Dev · CSS Art',
-    desc: 'Award-winning creative portfolio with WebGL backgrounds, custom cursor effects, and experimental typography animations.',
-    tech: ['Three.js', 'GSAP', 'WebGL', 'Next.js'],
+    desc: 'eVital is a prototype health check-up kiosk designed for local communities that allows users to monitor basic health information such as height, weight, BMI, and vital signs through a fast, accurate, and user-friendly digital system.',
+    tech: ['c++', 'Arduino', 'Sensor', '3D Printing'],
     color: '#00ff87',
-    status: 'CONCEPT',
     year: '2025',
+    image: '/project6.jpg',
+    
   },
 ]
 
-function ProjectCard({ project, index, visible }: {
-  project: typeof projects[0]; index: number; visible: boolean
+
+function ProjectCard({
+  project,
+  index,
+  visible,
+}: {
+  project: typeof projects[0]
+  index: number
+  visible: boolean
 }) {
   const [hovered, setHovered] = useState(false)
-
-  const statusColors: Record<string, string> = {
-    LIVE: '#00ff87',
-    WIP: '#ffb800',
-    CONCEPT: '#00aaff',
-  }
 
   return (
     <div
@@ -83,8 +89,12 @@ function ProjectCard({ project, index, visible }: {
         opacity: visible ? 1 : 0,
         transform: visible ? 'translateY(0)' : 'translateY(40px)',
         transitionDelay: `${index * 100}ms`,
-        border: hovered ? '1px solid rgba(0,255,135,0.35)' : '1px solid rgba(0,255,135,0.1)',
-        background: hovered ? 'rgba(0,255,135,0.04)' : 'rgba(0,255,135,0.01)',
+        border: hovered
+          ? '1px solid rgba(0,255,135,0.35)'
+          : '1px solid rgba(0,255,135,0.1)',
+        background: hovered
+          ? 'rgba(0,255,135,0.04)'
+          : 'rgba(0,255,135,0.01)',
         boxShadow: hovered ? '0 0 40px rgba(0,255,135,0.08)' : 'none',
         transition: 'all 0.3s ease',
       }}
@@ -103,80 +113,47 @@ function ProjectCard({ project, index, visible }: {
       />
 
       <div className="p-6">
-        {/* Header row */}
-        <div className="flex items-start justify-between mb-4">
-          <div>
-            <span
-              style={{
-                fontFamily: 'Orbitron, monospace',
-                fontSize: '11px',
-                color: 'rgba(0,255,135,0.35)',
-                letterSpacing: '0.2em',
-              }}
-            >
-              PROJECT_{project.id}
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span
-              className="w-1.5 h-1.5 rounded-full"
-              style={{ background: statusColors[project.status] || '#00ff87' }}
-            />
-            <span
-              style={{
-                fontFamily: 'Space Mono, monospace',
-                fontSize: '9px',
-                color: statusColors[project.status] || '#00ff87',
-                letterSpacing: '0.15em',
-              }}
-            >
-              {project.status}
-            </span>
-          </div>
+        {/* Header */}
+        <div className="mb-4">
+          <span
+            style={{
+              fontFamily: 'Orbitron, monospace',
+              fontSize: '11px',
+              color: 'rgba(0,255,135,0.35)',
+              letterSpacing: '0.2em',
+            }}
+          >
+            PROJECT_{project.id}
+          </span>
         </div>
 
-        {/* Visual placeholder */}
+        {/* Project image */}
         <div
-          className="mb-5 relative overflow-hidden flex items-center justify-center"
+          className="mb-5 relative overflow-hidden"
           style={{
-            height: '140px',
-            background: 'rgba(0,255,135,0.02)',
+            height: '220px',
             border: '1px solid rgba(0,255,135,0.07)',
+            background: 'rgba(0,255,135,0.02)',
           }}
         >
-          {/* Abstract circuit art */}
-          <svg
-            width="100%"
-            height="100%"
-            viewBox="0 0 300 140"
-            preserveAspectRatio="xMidYMid slice"
-            style={{ opacity: 0.25 }}
-          >
-            <defs>
-              <pattern id={`grid-${project.id}`} width="20" height="20" patternUnits="userSpaceOnUse">
-                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#00ff87" strokeWidth="0.3" />
-              </pattern>
-            </defs>
-            <rect width="300" height="140" fill={`url(#grid-${project.id})`} />
-            <circle cx="150" cy="70" r="40" fill="none" stroke="#00ff87" strokeWidth="0.5" />
-            <circle cx="150" cy="70" r="25" fill="none" stroke="#00ff87" strokeWidth="0.3" />
-            <line x1="50" y1="70" x2="110" y2="70" stroke="#00ff87" strokeWidth="0.5" />
-            <line x1="190" y1="70" x2="250" y2="70" stroke="#00ff87" strokeWidth="0.5" />
-            <line x1="150" y1="20" x2="150" y2="45" stroke="#00ff87" strokeWidth="0.5" />
-            <line x1="150" y1="95" x2="150" y2="120" stroke="#00ff87" strokeWidth="0.5" />
-            <text x="150" y="75" textAnchor="middle" fill="#00ff87" fontSize="12" fontFamily="Orbitron" fontWeight="bold">
-              {project.id}
-            </text>
-          </svg>
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-cover transition-all duration-500"
+            style={{
+              transform: hovered ? 'scale(1.05)' : 'scale(1)',
+              opacity: hovered ? 0.35 : 0.85,
+            }}
+          />
 
-          {/* Project index big number */}
+          {/* Project index */}
           <div
-            className="absolute"
+            className="absolute inset-0 flex items-center justify-center"
             style={{
               fontFamily: 'Orbitron, monospace',
               fontSize: '80px',
               fontWeight: 900,
-              color: 'rgba(0,255,135,0.04)',
+              color: 'rgba(0,255,135,0.08)',
               lineHeight: 1,
               userSelect: 'none',
             }}
@@ -184,36 +161,25 @@ function ProjectCard({ project, index, visible }: {
             {project.id}
           </div>
 
-          {/* Hover overlay */}
+          {/* Hover button */}
           <div
             className="absolute inset-0 flex items-center justify-center transition-all duration-300"
             style={{ opacity: hovered ? 1 : 0 }}
           >
-            <div className="flex gap-3">
-              <button
-                className="px-4 py-2 text-xs transition-all"
-                style={{
-                  background: '#00ff87',
-                  color: '#050a07',
-                  fontFamily: 'Space Mono, monospace',
-                  letterSpacing: '0.1em',
-                }}
-              >
-                VIEW
-              </button>
-              <button
-                className="px-4 py-2 text-xs transition-all"
-                style={{
-                  border: '1px solid #00ff87',
-                  color: '#00ff87',
-                  fontFamily: 'Space Mono, monospace',
-                  letterSpacing: '0.1em',
-                  background: 'rgba(0,255,135,0.05)',
-                }}
-              >
-                CODE
-              </button>
-            </div>
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-2 text-xs transition-all"
+              style={{
+                background: '#00ff87',
+                color: '#050a07',
+                fontFamily: 'Space Mono, monospace',
+                letterSpacing: '0.1em',
+              }}
+            >
+              VIEW PROJECT
+            </a>
           </div>
         </div>
 
@@ -306,20 +272,31 @@ export default function Projects() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true) },
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true)
+      },
       { threshold: 0.1 }
     )
+
     if (ref.current) observer.observe(ref.current)
+
     return () => observer.disconnect()
   }, [])
 
   return (
-    <section id="projects" ref={ref} className="relative py-32 overflow-hidden">
+    <section
+      id="projects"
+      ref={ref}
+      className="relative py-32 overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div
           className="mb-12 transition-all duration-700"
-          style={{ opacity: visible ? 1 : 0, transform: visible ? 'none' : 'translateY(20px)' }}
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'none' : 'translateY(20px)',
+          }}
         >
           <div
             style={{
@@ -332,6 +309,7 @@ export default function Projects() {
           >
             WORK
           </div>
+
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
             <h2
               style={{
@@ -344,6 +322,7 @@ export default function Projects() {
             >
               SELECTED <span style={{ color: '#00ff87' }}>PROJECTS</span>
             </h2>
+
             <a
               href="#"
               style={{
@@ -376,10 +355,22 @@ export default function Projects() {
                 fontSize: '10px',
                 letterSpacing: '0.15em',
                 padding: '6px 16px',
-                border: f === filter ? '1px solid #00ff87' : '1px solid rgba(0,255,135,0.15)',
-                color: f === filter ? '#00ff87' : 'rgba(0,255,135,0.4)',
-                background: f === filter ? 'rgba(0,255,135,0.08)' : 'transparent',
-                boxShadow: f === filter ? '0 0 10px rgba(0,255,135,0.1)' : 'none',
+                border:
+                  f === filter
+                    ? '1px solid #00ff87'
+                    : '1px solid rgba(0,255,135,0.15)',
+                color:
+                  f === filter
+                    ? '#00ff87'
+                    : 'rgba(0,255,135,0.4)',
+                background:
+                  f === filter
+                    ? 'rgba(0,255,135,0.08)'
+                    : 'transparent',
+                boxShadow:
+                  f === filter
+                    ? '0 0 10px rgba(0,255,135,0.1)'
+                    : 'none',
               }}
             >
               {f}
@@ -390,7 +381,12 @@ export default function Projects() {
         {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {projects.map((project, i) => (
-            <ProjectCard key={project.id} project={project} index={i} visible={visible} />
+            <ProjectCard
+              key={project.id}
+              project={project}
+              index={i}
+              visible={visible}
+            />
           ))}
         </div>
       </div>

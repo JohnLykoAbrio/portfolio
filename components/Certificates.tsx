@@ -14,60 +14,37 @@ interface Certificate {
 
 const certificates: Certificate[] = [
   {
-    title: 'React Developer Certification',
-    issuer: 'Meta',
+    title: 'MySQL, PostgreSQL. Microsoft SQL & Oracle SQL',
+    issuer: 'Udemy',
     year: '2024',
     description:
-      'Advanced React development including hooks, context API, performance optimization, and modern component architecture patterns.',
+       'Relational database management systems used for storing, managing, and processing structured data efficiently for web, business, and enterprise applications.',
     credentialId: 'META-RD-2024-001',
-    link: '#',
+
+    // PDF inside public folder
+    link: '/abriocert.png',
+
     featured: true,
   },
   {
-    title: 'Frontend Development Certification',
-    issuer: 'freeCodeCamp',
-    year: '2023',
-    description:
-      'Modern frontend technologies including HTML5, CSS3, JavaScript ES6+, responsive design, and accessibility best practices.',
-    credentialId: 'FCC-FE-2023-482',
-    link: '#',
-  },
-  {
-    title: 'UI/UX Design Fundamentals',
-    issuer: 'Google',
-    year: '2023',
-    description:
-      'User-centered design principles, interface prototyping, usability testing, and design thinking methodology.',
-    credentialId: 'GGL-UX-2023-774',
-    link: '#',
-  },
-  {
-    title: 'AWS Cloud Practitioner',
-    issuer: 'Amazon Web Services',
+    title: 'Web Development Bootcamp with HTML CSS PHP MySQL WordPress',
+    issuer: 'Udemy',
     year: '2024',
     description:
-      'Foundational understanding of AWS cloud infrastructure, services, security, and architecture best practices.',
-    credentialId: 'AWS-CP-2024-339',
-    link: '#',
+  'Comprehensive web development training covering responsive website creation, backend development with PHP & MySQL, and WordPress website management.',
+    credentialId: 'FCC-FE-2023-482',
+    link: '/abriocert1.png',
   },
   {
-    title: 'JavaScript Algorithms & Data Structures',
-    issuer: 'freeCodeCamp',
-    year: '2022',
-    description:
-      'Advanced JavaScript programming including algorithmic thinking, data structures, OOP, and functional programming.',
-    credentialId: 'FCC-JS-2022-119',
-    link: '#',
-  },
-  {
-    title: 'TypeScript Fundamentals',
-    issuer: 'Microsoft',
-    year: '2023',
-    description:
-      'Static typing, interfaces, generics, decorators, and building scalable type-safe applications with TypeScript.',
-    credentialId: 'MS-TS-2023-561',
-    link: '#',
-  },
+  title: 'Certificate of Recognition – First Runner Up',
+  issuer: 'Holy Cross of Davao College',
+  year: '2026',
+  description:
+    'Awarded to the eVital: Prototype Health Check-Up Kiosk for Local Communities as First Runner Up during TechnoFair 2026 under Sustainable Development Goals (SDG) 3 – Good Health and Well-Being and SDG 9 – Industry, Innovation, and Infrastructure.',
+  credentialId: 'TECHNOFAIR-2026-FRU',
+  link: '/abriocert3.jpg',
+},
+ 
 ]
 
 function CertCanvas() {
@@ -210,14 +187,24 @@ function CertificateCard({ cert, index }: { cert: Certificate; index: number }) 
         </div>
       )}
 
-      <a
-        href={cert.link}
-        target="_blank"
-        rel="noreferrer"
-        className="mt-2 inline-flex items-center justify-center text-[10px] tracking-[0.25em] uppercase border border-[#00ff87]/40 text-[#00ff87] py-2 px-3 transition-all hover:bg-[#00ff87]/10 hover:text-white hover:shadow-[0_0_15px_rgba(0,255,135,0.3)]"
-      >
-        View Certificate
-      </a>
+     {/* CERTIFICATE PREVIEW */}
+<div className="mt-3 border border-[#00ff87]/20 overflow-hidden bg-white rounded-md p-2">
+  <img
+    src={cert.link}
+    alt={cert.title}
+    className="w-full h-[260px] object-cover object-top rounded-sm"
+    draggable={false}
+  />
+</div>
+
+<a
+  href={cert.link}
+  target="_blank"
+  rel="noreferrer"
+  className="mt-3 inline-flex items-center justify-center text-[10px] tracking-[0.25em] uppercase border border-[#00ff87]/40 text-[#00ff87] py-2 px-3 transition-all hover:bg-[#00ff87]/10 hover:text-white hover:shadow-[0_0_15px_rgba(0,255,135,0.3)]"
+>
+  Open Full Certificate
+</a>
 
     </div>
   )

@@ -6,6 +6,7 @@ const timeline = [
   { year: '2014', event: 'Cornelio C. Reta Elementary School Reta Ave, Bangoy District, Davao City' },
   { year: '2017', event: 'F Bangoy National High School Sasa, Davao City' },
   { year: '2020', event: 'Holy Child College of Davao, Mintal Davao City' },
+  { year: '2026', event: 'Holy Cross of Davao College, Davao City' },
 ]
 
 const features = [
@@ -135,15 +136,15 @@ export default function About() {
             <div className="mt-12 flex gap-4 flex-wrap">
 
               <a
-                href="/cv.pdf"
-                download
-                className="px-6 py-3 border border-[#00ff87]/30 text-[#00ff87]/80 text-xs tracking-widest font-mono hover:bg-[#00ff87]/10 transition"
-              >
-                DOWNLOAD CV
-              </a>
+  href="/CVabrio.pdf"
+  download="CVabrio.pdf"
+  className="px-6 py-3 border border-[#00ff87]/30 text-[#00ff87]/80 text-xs tracking-widest font-mono hover:bg-[#00ff87]/10 transition"
+>
+  DOWNLOAD CV
+</a>
 
               <a
-                href="/resume.pdf"
+                href="/Abrio Resume (1).pdf"
                 target="_blank"
                 className="px-6 py-3 border border-[#00ff87]/30 text-[#00ff87]/80 text-xs tracking-widest font-mono hover:bg-[#00ff87]/10 transition"
               >
